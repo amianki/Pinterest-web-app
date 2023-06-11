@@ -1,4 +1,5 @@
-import express from 'express'
+// import express from 'express'
+const express = require("express");
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -22,6 +23,21 @@ app.use('/auth', authRoutes)
 
 app.get('/', (req, res) =>{
     res.send(`Server is running `)
+})
+
+app.post('/login',(req,res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    req.send("login sucessfull!!");
+})
+app.post('/signup',(req,res)=>{
+    const email = req.body.email;
+    const createPassword = req.body.createPassword;
+    req.send("signup successfull!!");
+})
+app.about('/about',(req,res)=>{
+    const about = req.body.about;
+    req.sent("about generated.")
 })
 
 app.listen(PORT, () => {
